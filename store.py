@@ -9,7 +9,7 @@ class PretreatMgr:
         file_name = "data/{weiboid}datas.pkl".format(weiboid=weiboid)
         if os.path.exists(file_name):
             os.remove(file_name)
-        file = open(file_name)
+        file = open(file_name, 'wb')
         pickle.dump(datas, file)
 
     @staticmethod
