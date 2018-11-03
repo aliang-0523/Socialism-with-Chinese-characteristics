@@ -6,12 +6,14 @@ class PretreatMgr:
 
     @staticmethod
     def save(weiboid, datas):
-        if os.path.exists("data/{weiboid}datas.pkl".format(weiboid=weiboid)):
-            os.remove("data/{weiboid}datas.pkl".format(weiboid=weiboid))
-        file = open("data/{weiboid}datas.pkl".format(weiboid=weiboid), 'wb')
+        file_name = "data/{weiboid}datas.pkl".format(weiboid=weiboid)
+        if os.path.exists(file_name):
+            os.remove(file_name)
+        file = open(file_name)
         pickle.dump(datas, file)
 
     @staticmethod
     def restore(weiboid):
-        file = open("data/{weiboid}datas.pkl".format(weiboid=weiboid), 'rb')
+        file_name = "data/{weiboid}datas.pkl".format(weiboid=weiboid)
+        file = open(file_name, 'rb')
         return pickle.load(file)
